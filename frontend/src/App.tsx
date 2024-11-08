@@ -16,9 +16,9 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/problem" element={<Problem />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
+              <Route path="/signup" element={<Signup />} /> z
+              <Route path="/problems/:id" element={<Problem />} />
             </Routes>
           </AuthProvider>
         </BrowserRouter>
