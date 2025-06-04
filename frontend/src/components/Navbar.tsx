@@ -61,7 +61,8 @@ export default function Navbar() {
             )}
           </div>
 
-          <div className="flex gap-4 grow px-2 items-center "></div>
+          
+
           <div className="">
             {user?.profile ? (
               <div className="flex justify-center items-center gap-4 text-[#9f9a9a]">

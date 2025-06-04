@@ -82,6 +82,11 @@ app.get('/problems/:id', (req, res) => {
     res.json({ problem });
 });
 
+app.post('/submit', (req, res) => {
+    const {answer , id} = req.body;
+    console.log(id, answer);
+})
+
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
 })

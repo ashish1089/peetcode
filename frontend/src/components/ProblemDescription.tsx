@@ -25,7 +25,7 @@ export default function ProblemDescription() {
   return (
     <>
       <div className="text-white mt-1 pl-1">
-        <div className="bg-dark-layer-2  w-fit text-white flex gap-2">
+        <div className="bg-dark-layer-2 w-full  text-gray-400">
           <div className="bg-dark-layer-1 rounded-t-[5px] text-sm cursor-pointer select-none px-4 py-2">
             Description
           </div>
