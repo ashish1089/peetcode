@@ -60,65 +60,57 @@ export default function ProblemDescription() {
                 </div>
               </div>
 
-              <div className="text-white text-base mt-2">
-                {problem?.description}
+              <div className="text-white text-base mt-2" dangerouslySetInnerHTML={{__html: problem?.description || ""}}>
               </div>
-
               <div className="mt-4 text-xs">
-                <div>
-                  <p className="text-white ">Example 1: </p>
-                  <div className="example-card">
+                {problem?.examples?.map((example, idx) => (
+                  <div key={idx}>
+                    <p className="font-medium text-white pb-3">{`Example ${
+                      idx + 1
+                    }: `}</p>
+                    {example.img && (
+                      <img src={example.img} />
+                    )}
+                    <div className="example-card">
                     <pre>
-                      <span className="text-white">Input: </span> nums =
-                      [2,7,11,15], target = 9 <br />
-                      <span>Output:</span> [0,1] <br />
-                      <span>Explanation:</span>Because nums[0] + nums[1] == 9,
-                      we return [0, 1].
-                    </pre>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="font-medium text-white ">Example 2: </p>
-                  <div className="example-card">
-                    <pre>
-                      <span className="text-white">Input: </span> nums =
-                      [3,2,4], target = 6 <br />
-                      <span>Output:</span> [1,2] <br />
-                      <span>Explanation:</span>Because nums[1] + nums[2] == 6,
-                      we return [1, 2].
-                    </pre>
-                  </div>
-                </div>
-                <div>
-                  <p className="font-medium text-white ">Example 3: </p>
-                  <div className="example-card">
-                    <pre>
-                      <span className="text-white">Input: </span> nums = [3,3],
-                      target = 6
+                      <span className="text-white">Input: </span>
+                      {example.Input}
                       <br />
-                      <span>Output:</span> [0,1] <br />
-                    </pre>
+                      <span className="text-white">Output: </span>
+                      {example.Output}
+                      <br />
+                      {example.Explanation && (
+                        <>
+                          <span className="text-white">Explanation: </span>
+                          {example.Explanation}
+                        </>
+                      )}
+                      </pre>
+                      </div>
                   </div>
-                </div>
+                ))}
               </div>
 
               <div className="my-5">
-                <div className="text-white text-xs ">Constraints:</div>
+                <div className="text-white text-sm ">Constraints:</div>
                 <ul className="text-white ml-5 list-disc">
-                  <li className="mt-2">
-                    <code>2 ≤ nums.length ≤ 10</code>
+                    { problem?.constraints.map((constraint: string, index: number) => (
+                    <li key={index} className="mt-2" dangerouslySetInnerHTML={{ __html: constraint }}>
+                    </li>
+                    ))}
+                  {/* <li className="mt-2">
+                    <code>{`${problem?.constraints[0]}`}</code>
                   </li>
 
                   <li className="mt-2">
-                    <code>-10 ≤ nums[i] ≤ 10</code>
+                    <code>{`${problem?.constraints[1]}`}</code>
                   </li>
                   <li className="mt-2">
                     <code>-10 ≤ target ≤ 10</code>
                   </li>
                   <li className="mt-2 text-xs">
                     <span>Only one valid answer exists.</span>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

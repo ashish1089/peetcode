@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { UserContext } from "../context/AuthContext";
 
 export type User = {
   username: string;
@@ -14,7 +14,7 @@ export default function Login() {
     password: "",
     username: "",
   });
-  const authContext = useContext(AuthContext);
+  const authContext = useContext(UserContext);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;

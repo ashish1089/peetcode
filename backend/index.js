@@ -68,7 +68,8 @@ app.get('/problems', (req, res) => {
         problemId: x.problemId,
         title: x.title,
         difficulty: x.difficulty,
-        acceptance: x.acceptance
+        acceptance: x.acceptance,
+        examples: x.examples
     }))
     res.json({
         problems: filteredProblems
@@ -83,8 +84,9 @@ app.get('/problems/:id', (req, res) => {
 });
 
 app.post('/submit', (req, res) => {
-    const {answer , id} = req.body;
-    console.log(id, answer);
+    const { answer, questionId } = req.body;
+    // console.log('answer: ', answer, "questionId:", questionId);
+    res.json({ answer: answer, id: questionId})
 })
 
 app.listen(3000, () => {

@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext.js";
+import { UserContext } from "../context/AuthContext.js";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 export default function Navbar() {
-  const user = useContext(AuthContext);
+  const user = useContext(UserContext);
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const getCurrentProblemId = () => {
@@ -16,11 +16,17 @@ export default function Navbar() {
     const currentId = getCurrentProblemId();
     if (currentId > 1) {
       navigate(`/problems/${currentId - 1}`);
+    } else {
+      navigate(`/problems/10`)
     }
   };
   const nextQuestion = () => {
     const currentId = getCurrentProblemId();
-    navigate(`/problems/${currentId + 1}`);
+    if (currentId === 10) {
+      navigate(`/problems/1`);
+    } else {
+      navigate(`/problems/${currentId + 1}`)
+    }
   };
 
   return (
@@ -60,8 +66,6 @@ export default function Navbar() {
               </div>
             )}
           </div>
-
-          
 
           <div className="">
             {user?.profile ? (

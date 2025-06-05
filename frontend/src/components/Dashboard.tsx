@@ -2,12 +2,22 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../constant";
 
+type example = {
+  id: number;
+  Input: string;
+  Output: string;
+  Explanation?: string;
+  img?: string;
+};
+
 export type ProblemType = {
   problemId: string;
   title: string;
   acceptance: string;
   difficulty: string;
   description: string;
+  examples: example[];
+  constraints: string[];
 };
 
 export default function Dashboard() {
